@@ -1,3 +1,4 @@
+from assets import logo
 from string import ascii_lowercase
 from time import sleep
 import os
@@ -12,15 +13,14 @@ def main():
     is_running = True
 
     while is_running:
+        print(logo)
         option = input(
             'Enter \'encode\' to encrypt or \'decode\' to decrypt: ')
         message = input('Enter your message: ').lower()
         shift = int(input('Enter the shift number: '))
         new_message = cipher(option, message, shift)
-        print(f'\nHere\'s the encoded result: {new_message}')
-        clear(2)
-
-        again = input('Enter \'yes\' to restart or \'no\' to quit: ').lower()
+        print(f'Here\'s the encoded result: {new_message}')
+        again = input('\nEnter \'yes\' to restart or \'no\' to quit: ').lower()
         if again == 'no':
             is_running = False
         clear()
